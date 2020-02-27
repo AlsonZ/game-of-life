@@ -84,27 +84,26 @@ function App() {
         {
           margin: '1rem',
           display: 'grid',
-          gridTemplateColumns: `repeat(${numCols}, 20px)`
+          gridTemplateColumns: `repeat(${numCols}, 20px)`,
+          border: 'solid 1px lightgrey',
         }
       }>
         {grid.map((rows, x) => rows.map((col, y) => 
           <div 
             onClick = {() => {clickCell(x,y)}}
             key = {`${x}-${y}`}
-            style = {
-              {
-                width: 20,
-                height: 20,
-                backgroundColor: grid[x][y] ? 'black' : undefined, // if =0 then is false because truthy/falsey
-                border: "solid 1px blue"
-              }
-            }
+            style = {{
+              width: 20,
+              height: 20,
+              backgroundColor: grid[x][y] ? 'black' : undefined, // if =0 then is false because truthy/falsey
+              // border: "solid 1px lightgrey",
+              borderRadius: '1rem'
+            }}
           />
         ))}
       </div>
       <div className="action-container">
-        <button onClick={() => setGrid(() => randomGrid())}>Randomise</button>  
-        <button onClick={() => setGrid(() => createEmptyGrid())}>Reset</button>  
+        Menu
         <button onClick={() => {
           setRunning(!running);
           runningRef.current = true;
@@ -112,6 +111,8 @@ function App() {
         }}>
           {running ? 'Stop' : 'Start'}
         </button>  
+        <button onClick={() => setGrid(() => createEmptyGrid())}>Reset</button>  
+        <button onClick={() => setGrid(() => randomGrid())}>Randomise</button>  
         <input type="number" value={speed} onChange={event => setSpeed(event.target.value)}/>
         <button onClick={() => {speedRef.current = speed}}>Change Speed</button>
       </div>

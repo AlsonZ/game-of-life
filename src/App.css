@@ -9,5 +9,31 @@
   flex-direction: column;
   margin: 1rem;
   padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
 
+button {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid lightgrey;
+  margin: 0.2rem;
+}
+
+button:hover {
+  background-color: lightgrey;
+}
+
+button:focus {
+  outline: 0;
+  background-color: lightgrey;
+}
+
+input {
+  padding: 0.3rem;
+  margin: 0.2rem;
+  width: 5rem;
+}
+input:focus {
+  outline: 0;
 }
