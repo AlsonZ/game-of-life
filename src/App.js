@@ -103,7 +103,7 @@ function App() {
         ))}
       </div>
       <div className="action-container">
-        Menu
+        Conway's Game of Life
         <button onClick={() => {
           setRunning(!running);
           runningRef.current = true;
